@@ -43,3 +43,28 @@ Note that if you install the library to other places other than `/opt/unitree_ro
 
 ### Notice
 For more reference information, please go to [Unitree Document Center](https://support.unitree.com/home/zh/developer).
+
+
+---
+```
+hyeon@hyeon ~/g1/unitree_sdk2/build/bin (main) $ ./go2_sport_client 
+Usage: ./go2_sport_client <network_interface> <mode>
+
+Available modes:
+  0 : normal_stand (기본 서기)
+  1 : balance_stand (균형 서기)
+  2 : velocity_move (이동 - 전진 0.3m/s, 회전 0.3rad/s)
+  3 : stand_down (앉기)
+  4 : stand_up (일어서기)
+  5 : damp (댐핑 모드)
+  6 : recovery_stand (복구 서기)
+  7 : sit (앉기 자세)
+  8 : rise_sit (앉은 자세에서 일어나기)
+  99: stop_move (정지)
+
+Example:
+  ./go2_sport_client enp44s0 0    # normal stand mode
+  ./go2_sport_client enp44s0 2    # velocity move mode
+  ./go2_sport_client enp44s0 3    # stand down mode
+
+```
