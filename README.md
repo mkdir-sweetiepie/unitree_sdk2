@@ -66,5 +66,11 @@ Example:
   ./go2_sport_client enp44s0 0    # normal stand mode
   ./go2_sport_client enp44s0 2    # velocity move mode
   ./go2_sport_client enp44s0 3    # stand down mode
+```
 
+```
+./go2_sport_client enp44s0 0
+./go2_sport_client enp44s0 1
+./go2_sport_client enp44s0 2
+./go2_sport_client enp44s0 5
 ```
