@@ -19,3 +19,18 @@ target_link_libraries(go2_video_client unitree_sdk2)
 
 add_executable(go2_vui_client go2_vui_client.cpp)
 target_link_libraries(go2_vui_client unitree_sdk2)
+
+add_executable(go2_simple_keyboard go2_simple_keyboard.cpp)
+target_link_libraries(go2_simple_keyboard unitree_sdk2)
+
+add_executable(go2_autonomous_navigation go2_autonomous_navigation.cpp)
+target_link_libraries(go2_autonomous_navigation unitree_sdk2)
+
+add_executable(go2_imu_straight_control go2_imu_straight_control.cpp)
+target_link_libraries(go2_imu_straight_control unitree_sdk2)
+
+add_executable(go2_lidar_obstacle_avoidance go2_lidar_obstacle_avoidance.cpp)
+target_link_libraries(go2_lidar_obstacle_avoidance unitree_sdk2)
+
+add_executable(lidar_switch ../../lidar_switch.cpp)
+target_link_libraries(lidar_switch unitree_sdk2)
