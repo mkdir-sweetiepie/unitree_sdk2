@@ -25,4 +25,3 @@ target_link_libraries(go2_simple_keyboard unitree_sdk2)
 
 add_executable(go2_imu_straight_control go2_imu_straight_control.cpp)
 target_link_libraries(go2_imu_straight_control unitree_sdk2)
-

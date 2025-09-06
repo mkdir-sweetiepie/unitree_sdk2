@@ -103,7 +103,7 @@ public:
 
     auto start_time = std::chrono::steady_clock::now();
     float traveled_distance = 0.0f;
-    const float forward_speed = 0.3f;
+    const float forward_speed = 0.5f;  //3.0f; 
     const float yaw_correction_gain = 0.5f;
 
     while (running && traveled_distance < distance_meters)
@@ -177,12 +177,47 @@ public:
   }
 
   /**
+   * @brief 20도 우회전
+   */
+  void TurnRight20Degrees()
+  {
+    if (!yaw_initialized)
+      return;
+
+    std::cout << "90도 우회전 시작...\n";
+    target_yaw -= M_PI / 9.0f;
+
+    while (target_yaw < -M_PI)
+      target_yaw += 2 * M_PI;
+
+    Turn(target_yaw);
+  }
+
+
+  /**
+   * @brief 20도 좌회전
+   */
+  void TurnLeft20Degrees()
+  {
+    if (!yaw_initialized)
+      return;
+
+    std::cout << "90도 좌회전 시작...\n";
+    target_yaw += M_PI / 9.0f;
+
+    while (target_yaw > M_PI)
+      target_yaw -= 2 * M_PI;
+
+    Turn(target_yaw);
+  }
+
+  /**
    * @brief 지정된 각도로 회전
    * @param target_angle 목표 각도
    */
   void Turn(float target_angle)
   {
-    const float turn_speed = 0.3f;
+    const float turn_speed = 0.5f; //3.0f;
     const float angle_tolerance = 0.05f;
 
     while (running)
@@ -268,16 +303,56 @@ int main(int argc, char **argv)
   std::cout << "4. 90도 좌회전\n";
   std::cout << "=======================================\n\n";
 
-  controller.MoveForward(3.0f);
+  // 1
+  controller.MoveForward(1.0f);
+  sleep(1);
+
+  controller.TurnLeft20Degrees();
+  sleep(1);
+
+  controller.MoveForward(1.3f); // 1.0-> 1.3
+  sleep(1);
+
+  controller.TurnRight20Degrees();
+  sleep(1);
+
+  controller.MoveForward(3.2f); //3.5-> 3.2
+  sleep(1);
+
+  controller.TurnLeft90Degrees();
+  sleep(1);
+
+  controller.MoveForward(5.3f);
+  sleep(1);
+
+  controller.TurnLeft90Degrees();
+  sleep(1);
+
+  controller.MoveForward(7.5f);
+  sleep(1);
+  //////////////////////////////
+  controller.TurnLeft90Degrees();
+  sleep(1);
+
+  controller.MoveForward(0.8f); // 1.0->0.8
+  sleep(1);
+  //////////////////////////////
+  controller.TurnLeft90Degrees();
+  sleep(1);
+
+  controller.MoveForward(6.0f);
   sleep(1);
 
   controller.TurnRight90Degrees();
   sleep(1);
 
-  controller.MoveForward(2.0f);
+  controller.MoveForward(3.5f);
   sleep(1);
 
-  controller.TurnLeft90Degrees();
+  controller.TurnRight90Degrees();
+  sleep(1);
+
+  controller.MoveForward(5.0f);
   sleep(1);
 
   std::cout << "테스트 완료!\n";
